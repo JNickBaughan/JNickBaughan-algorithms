@@ -1,0 +1,24 @@
+{
+  "name": "jnickbaughan-algorithms",
+  "version": "1.0.0",
+  "description": "common algorithms",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JNickBaughan/JNickBaughan-algorithms.git"
+  },
+  "keywords": [
+    "algorithms",
+    "javascript",
+    "J Nick Baughan"
+  ],
+  "author": "J Nick Baughan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JNickBaughan/JNickBaughan-algorithms/issues"
+  },
+  "homepage": "https://github.com/JNickBaughan/JNickBaughan-algorithms#readme"
+}
