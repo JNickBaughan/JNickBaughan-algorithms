@@ -74,6 +74,27 @@ const selectionSort = (needToSwap, swap) => {
     }
 }
 
+const mergeSort = (arr) => {
+    if(arr.length === 1) return arr;
+    const halfIndex = Math.ceil(arr.length/2);
+
+    const left = arr.slice(0, halfIndex);
+    const right = arr.slice(halfIndex);
+
+    return merge(mergeSort(left),mergeSort(right));
+    
+}
+
+const merge = (left, right) => {
+    const sorted = [];
+    while(left.length && right.length){
+        left[0] < right[0]
+            ? sorted.push(left.shift())
+            : sorted.push(right.shift())
+    }
+    return [ ...sorted, ...left, ...right ]
+}
+
 module.exports.bubbleSort = bubbleSort;
 module.exports.swapWithNextAscending = swapWithNextAscending;
 module.exports.swapWithNextDescending = swapWithNextDescending;
@@ -85,6 +106,10 @@ module.exports.swapWithMinAscending = swapWithMinAscending;
 module.exports.swapWithMaxDescending = swapWithMaxDescending;
 module.exports.isLessThan = isLessThan;
 module.exports.isGreaterThan = isGreaterThan;
+
+module.exports.mergeSort = mergeSort;
+module.exports.merge = merge;
+
 
 
 
