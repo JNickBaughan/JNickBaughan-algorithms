@@ -14,8 +14,10 @@ const isGreaterThan = S.isGreaterThan;
 const swapWithMaxDescending = S.swapWithMaxDescending;
 const isLessThan = S.isLessThan;
 //mergeSort
-const mergeSort = S.mergeSort;
+const mergeSortFactory = S.mergeSortFactory;
 const merge = S.merge;
+const isLessThanMerge = S.isLessThanMerge;
+const isGreaterThanMerge = S.isGreaterThanMerge;
 
 function getArray() {
   return [100, -40, 500, -124, 0, 21, 7];
@@ -58,15 +60,28 @@ describe('Selection sort - descending order', () => {
 });
 
 describe('Merge sort', () => {
-  test('merge function can join together two sorted arrays', () => {
+  test('merge function can join together two sorted arrays in asc order', () => {
     const left = [1, 10];
     const right = [2, 8, 12];
 
-    expect(merge(left, right)).toEqual([1,2,8,10,12]);
+    expect(merge(left, right, isLessThanMerge)).toEqual([1,2,8,10,12]);
   });
 
-  test('sorts an array', () => {
-    expect(mergeSort(getArray())).toEqual(getSortedAscendingArray());
+  test('merge function can join together two sorted arrays in desc order', () => {
+    const left = [10, 1];
+    const right = [12, 8, 2];
+
+    expect(merge(left, right, isGreaterThanMerge)).toEqual([12,10,8,2,1]);
+  });
+
+  test('sorts an array in asc order', () => {
+    const mergeSortAsc = mergeSortFactory(isLessThanMerge);
+    expect(mergeSortAsc(getArray())).toEqual(getSortedAscendingArray());
+  });
+
+  test('sorts an array in desc order', () => {
+    const mergeSortDesc = mergeSortFactory(isGreaterThanMerge);
+    expect(mergeSortDesc(getArray())).toEqual(getSortedDescendingArray());
   });
 });
 
